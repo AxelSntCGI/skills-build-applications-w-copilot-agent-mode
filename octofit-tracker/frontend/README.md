@@ -1,4 +1,19 @@
-# React + Vite
+# Octofit Tracker frontend
+
+The React 19 presentation tier uses Vite and `react-router-dom` to display the
+activity, leaderboard, teams, users, and workouts resources.
+
+## API environment
+
+Define `VITE_CODESPACE_NAME` in `.env.local` when running the frontend in
+Codespaces:
+
+```env
+VITE_CODESPACE_NAME=your-codespace-name
+```
+
+The frontend then calls `https://your-codespace-name-8000.app.github.dev/api/[component]/`.
+When the variable is unset, it safely falls back to `http://localhost:8000`.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
