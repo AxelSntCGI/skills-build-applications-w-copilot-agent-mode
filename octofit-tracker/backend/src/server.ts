@@ -9,7 +9,7 @@ import {
   workoutsRouter,
 } from './routes/index.js';
 
-const app = express();
+const app = express(); 
 const port = 8000;
 const codespaceName = process.env.CODESPACE_NAME;
 const apiUrl = codespaceName
