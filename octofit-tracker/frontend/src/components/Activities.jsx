@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 
+const ACTIVITIES_ENDPOINT = '/api/activities/'
+
 function Activities() {
   const [activities, setActivities] = useState([])
   const [error, setError] = useState('')
-  useEffect(() => { fetchCollection('activities').then(setActivities).catch((reason) => setError(reason.message)) }, [])
+  useEffect(() => { fetchCollection(ACTIVITIES_ENDPOINT).then(setActivities).catch((reason) => setError(reason.message)) }, [])
   return <ResourceTable title="Activity log" eyebrow="Movement, measured" resource="activities" rows={activities} error={error} columns={['name', 'type', 'duration', 'calories']} />
 }
 

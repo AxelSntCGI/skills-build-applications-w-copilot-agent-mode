@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 
+const TEAMS_ENDPOINT = '/api/teams/'
+
 function Teams() {
   const [teams, setTeams] = useState([])
   const [error, setError] = useState('')
-  useEffect(() => { fetchCollection('teams').then(setTeams).catch((reason) => setError(reason.message)) }, [])
+  useEffect(() => { fetchCollection(TEAMS_ENDPOINT).then(setTeams).catch((reason) => setError(reason.message)) }, [])
   return <CollectionView title="Teams" eyebrow="Find your pace" resource="teams" rows={teams} error={error} detail={(team) => `${team.members?.length ?? team.memberCount ?? 0} members`} />
 }
 
